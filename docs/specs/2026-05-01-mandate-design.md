@@ -19,10 +19,10 @@ While 2026's flagship multi-agent frameworks (LangGraph, CrewAI, Paperclip, Open
 4. **Historian Layer (史官) for institutional evolution** — chronicles, periodic reform PRs, and event-driven audits create a second-order feedback loop that lets the court evolve its own constitution.
 5. **Bilingual first-class citizenship** — Eastern (封建朝廷) and Western (corporate) metaphors coexist via a `terms.yaml` map; CLI output and YAML role names work in either language.
 
-The project ships as **A+B incremental delivery**:
+The project ships as **A→B→C sequenced delivery**:
 - **Phase A (weeks 1-4):** Methodology authority — bilingual README, SPEC, prompt templates, YAML schema, 5-10 articles. Anyone can implement Mandate on top of LangGraph / Claude Code / Paperclip without our code.
 - **Phase B (weeks 5-12):** Reference TypeScript runtime — `npx create-mandate`, `npx mandate genesis`, `mandate evolve`, eight `imperial-*-v1` skill packs.
-- **Phase C (Dashboard) is explicitly deferred** to avoid a head-on collision with Paperclip.
+- **Phase C (weeks 13-20):** Bilingual web dashboard ("紫禁城" / "Forbidden City"). Sequenced after Phase B stabilizes to avoid a head-on collision with Paperclip's first-mover window; differentiates via topology-aware visualization + reform PR review surface + bilingual cultural shell.
 
 ---
 
@@ -744,9 +744,27 @@ Phase B exit criteria:
 - One technical blog post published.
 - One ≤90s demo video.
 
-### Phase C — Dashboard (Deferred to v2)
+### Phase C — Bilingual Dashboard "紫禁城" (Weeks 13-20, sequenced after Phase B)
 
-Not in v1 scope. Avoids head-on collision with Paperclip. Revisit only if Phase B captures meaningful traction (≥5k stars).
+Web dashboard for visualizing and operating a running court. Starts only after Phase B exit criteria are met; its purpose is to convert Phase A/B's methodology authority + working runtime into a visual product surface that retains users.
+
+**Differentiators vs Paperclip's task-list dashboard:**
+- **Topology-aware visualization** — animated court graph (皇帝 → 宰相 → 项目组 → 各角色) with live agent state, hook firings, and censor interceptions overlaid in real time
+- **Reform PR review as a primary surface** — diff viewer + ratify/veto buttons in browser; constitution version history timeline. Paperclip has no concept of constitution evolution.
+- **Bilingual cultural shell** — UI chrome themed as "紫禁城" with optional plain Western "court" theme; language switch in nav. Visual moat that no English-only competitor will replicate.
+- **Censor audit timeline** — red-line events, drift detections, hallucination flags filterable per role with drill-down to the offending hook output
+- **Per-mandate cost & token dashboard** — live spend, fallback chain decisions, model probe history
+
+**Tech stack (proposed):** Next.js 15 (App Router) + React 19 + Tailwind v4 + shadcn/ui + tRPC + Server-Sent Events for live chronicle stream + d3.js / React Flow for topology graph. Backend reuses `@mandate/core`'s runtime — dashboard is a thin presentation tier over the same files-as-source-of-truth.
+
+**Phase C exit criteria:**
+- Dashboard renders any `.mandate/` directory in real time
+- Reform PR ratify/veto from UI produces identical git history to CLI ratify
+- Topology graph animates ≥5 concurrent agents at 30fps
+- Bilingual UI passes parity check (no string drift)
+- Demo C ("self-governance") is recorded as a 60-90s screencast purely from the dashboard
+
+**Phase C is in the long-term roadmap, not deferred.** Phase A and B are sequenced first to avoid premature platform competition with Paperclip; Phase C launches once Mandate's methodology + runtime have established differentiated mindshare.
 
 ---
 
@@ -754,7 +772,7 @@ Not in v1 scope. Avoids head-on collision with Paperclip. Revisit only if Phase 
 
 | Risk | Likelihood | Impact | Mitigation |
 |---|---|---|---|
-| Paperclip parity confusion ("just another zero-human company framework") | High | High | Lead with the **5 vacancies** narrative; bilingual cultural moat; no dashboard in v1 |
+| Paperclip parity confusion ("just another zero-human company framework") | High | High | Lead with the **5 vacancies** narrative; bilingual cultural moat; sequence Phase C dashboard after Phase B traction (weeks 13-20), so Mandate enters the platform contest with established methodology + runtime authority instead of as a copycat |
 | Default model unavailability (gpt-5.5 etc.) | Certain | Medium | Three-tier fallback chain; clear startup logs about substitutions |
 | Hook fatigue (too many forced acts slow agents) | Medium | Medium | Default hook set is minimal; per-role `hooks.disable: [<event>]` for opt-out |
 | Censor budget blowout | Medium | High | Default `balanced` tier samples 30%/10% on inner layers; `frugal` exists for cost-sensitive users |
