@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://mandate.dev/schemas/constitution.schema.json",
+  "title": "Mandate Constitution",
+  "type": "object",
+  "required": ["version", "project", "topology", "censor", "historian", "models", "skill_resolution"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "project": { "type": "string", "minLength": 1 },
+    "language": { "enum": ["zh", "en", "both"], "default": "both" },
+    "charter_path": { "type": "string", "default": "charter.md" },
+    "topology": {
+      "type": "object",
+      "required": ["enforce_no_parent_child", "on_violation"],
+      "properties": {
+        "enforce_no_parent_child": { "type": "boolean" },
+        "on_violation": { "enum": ["warn", "hard_block", "auto_merge"] }
+      }
+    },
+    "censor": {
+      "type": "object",
+      "required": ["default_tier"],
+      "properties": {
+        "default_tier": { "enum": ["paranoid", "balanced", "frugal"] },
+        "overrides": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "strategy": { "enum": ["full", "sample", "red_line"] },
+              "rate": { "type": "number", "minimum": 0, "maximum": 1 },
+              "async": { "type": "boolean" },
+              "model": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "historian": {
+      "type": "object",
+      "required": ["reflection_period_days", "reflection_period_tasks"],
+      "properties": {
+        "reflection_period_days": { "type": "integer", "minimum": 1 },
+        "reflection_period_tasks": { "type": "integer", "minimum": 1 },
+        "audit_red_lines": { "type": "array" }
+      }
+    },
+    "models": {
+      "type": "object",
+      "required": ["chancellor", "cto", "scout", "soldier", "secretary", "censor", "historian"],
+      "additionalProperties": {
+        "type": "object",
+        "required": ["preferred", "fallback"],
+        "properties": {
+          "preferred": { "type": "string" },
+          "fallback": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "skill_resolution": {
+      "type": "object",
+      "required": ["discovery_order", "auto_assign"],
+      "properties": {
+        "discovery_order": {
+          "type": "array",
+          "items": { "enum": ["local", "mandate-registry", "npm", "clawhub"] }
+        },
+        "auto_assign": { "type": "boolean" }
+      }
+    }
+  }
+}
