@@ -1,0 +1,16 @@
+emperor:    { zh: 皇帝, en: emperor, latin: imperator }
+chancellor: { zh: 宰相, en: chancellor, latin: cancellarius }
+cto:        { zh: 军师, en: cto, alias: strategist }
+scout:      { zh: 斥候, en: scout, alias: researcher }
+soldier:    { zh: 士兵, en: soldier, alias: worker }
+secretary:  { zh: 文官, en: secretary, alias: mandarin }
+censor:     { zh: 锦衣卫, en: censor, alias: jin-yi-wei }
+historian:  { zh: 史官, en: historian, alias: chronicler }
+mandate:    { zh: 诏书, en: mandate }
+reform:     { zh: 制度修订, en: reform }
+chronicle:  { zh: 史册, en: chronicle }
+audit:      { zh: 紧急奏折, en: audit }
+ratify:     { zh: 批红, en: ratify }
+veto:       { zh: 留中, en: veto }
+genesis:    { zh: 开国, en: genesis }
+evolve:     { zh: 演化, en: evolve }
