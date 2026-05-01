@@ -7,15 +7,21 @@ import addFormats from 'ajv-formats';
 const ajv = new Ajv({ allErrors: true, strict: false });
 addFormats(ajv);
 
+const constitutionSchema = JSON.parse(readFileSync('spec/constitution.schema.json', 'utf8'));
+const hooksSchema = JSON.parse(readFileSync('spec/hooks.schema.json', 'utf8'));
+const decompositionSchema = JSON.parse(readFileSync('spec/decomposition.schema.json', 'utf8'));
+const reformSchema = JSON.parse(readFileSync('spec/reform.schema.json', 'utf8'));
+
+const validateConstitution = ajv.compile(constitutionSchema);
+const validateHooks = ajv.compile(hooksSchema);
+const validateDecomposition = ajv.compile(decompositionSchema);
+const validateReform = ajv.compile(reformSchema);
+
 test('constitution.schema.json is valid Draft-07 JSON Schema', () => {
-  const schema = JSON.parse(readFileSync('spec/constitution.schema.json', 'utf8'));
-  const validate = ajv.compile(schema);
-  assert.ok(validate, 'schema must compile');
+  assert.ok(validateConstitution, 'schema must compile');
 });
 
 test('constitution.schema.json: minimal valid example passes', () => {
-  const schema = JSON.parse(readFileSync('spec/constitution.schema.json', 'utf8'));
-  const validate = ajv.compile(schema);
   const example = {
     version: '1.0.0',
     project: 'demo',
@@ -37,20 +43,16 @@ test('constitution.schema.json: minimal valid example passes', () => {
       auto_assign: true
     }
   };
-  const ok = validate(example);
-  assert.ok(ok, JSON.stringify(validate.errors));
+  const ok = validateConstitution(example);
+  assert.ok(ok, JSON.stringify(validateConstitution.errors));
 });
 
 test('constitution.schema.json: missing required field fails', () => {
-  const schema = JSON.parse(readFileSync('spec/constitution.schema.json', 'utf8'));
-  const validate = ajv.compile(schema);
   const bad = { project: 'demo' };
-  assert.equal(validate(bad), false);
+  assert.equal(validateConstitution(bad), false);
 });
 
 test('hooks.schema.json: minimal valid example passes', () => {
-  const schema = JSON.parse(readFileSync('spec/hooks.schema.json', 'utf8'));
-  const validate = ajv.compile(schema);
   const example = {
     role: 'chancellor',
     zh: '宰相',
@@ -64,22 +66,18 @@ test('hooks.schema.json: minimal valid example passes', () => {
       ]
     }
   };
-  assert.ok(validate(example), JSON.stringify(validate.errors));
+  assert.ok(validateHooks(example), JSON.stringify(validateHooks.errors));
 });
 
 test('hooks.schema.json: missing must field fails', () => {
-  const schema = JSON.parse(readFileSync('spec/hooks.schema.json', 'utf8'));
-  const validate = ajv.compile(schema);
   const bad = {
     role: 'chancellor',
     hooks: { on_x: [{ writes_to: 'foo' }] }
   };
-  assert.equal(validate(bad), false);
+  assert.equal(validateHooks(bad), false);
 });
 
 test('decomposition.schema.json: valid example with sibling-only deps passes', () => {
-  const schema = JSON.parse(readFileSync('spec/decomposition.schema.json', 'utf8'));
-  const validate = ajv.compile(schema);
   const example = {
     mandate_id: 'm-001',
     groups: [
@@ -87,12 +85,10 @@ test('decomposition.schema.json: valid example with sibling-only deps passes', (
       { id: 'biz',  goal: 'investigate companies', deadline: '2026-05-08', budget_tokens: 50000, deps: [{ from: 'tech', kind: 'result_only' }] }
     ]
   };
-  assert.ok(validate(example), JSON.stringify(validate.errors));
+  assert.ok(validateDecomposition(example), JSON.stringify(validateDecomposition.errors));
 });
 
 test('reform.schema.json: valid PR example passes', () => {
-  const schema = JSON.parse(readFileSync('spec/reform.schema.json', 'utf8'));
-  const validate = ajv.compile(schema);
   const example = {
     pr_id: 'PR-001',
     title: 'Merge research and content groups',
@@ -103,5 +99,5 @@ test('reform.schema.json: valid PR example passes', () => {
     ],
     status: 'pending'
   };
-  assert.ok(validate(example), JSON.stringify(validate.errors));
+  assert.ok(validateReform(example), JSON.stringify(validateReform.errors));
 });
