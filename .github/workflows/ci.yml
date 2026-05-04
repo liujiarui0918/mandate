@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install
+      - name: Lint schemas
+        run: npm run lint:schemas
+      - name: Lint README parity
+        run: npm run lint:readme
+      - name: Lint article parity
+        run: npm run lint:articles
+      - name: Lint terms
+        run: node --test tests/lint-terms.test.mjs
+      - name: Lint examples
+        run: node --test tests/lint-examples.test.mjs
