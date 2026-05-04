@@ -1,0 +1,2 @@
+* text=auto eol=lf
+*.{md,yaml,yml,json,mjs,js,ts} text eol=lf
