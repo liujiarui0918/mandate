@@ -69,6 +69,17 @@ $ npx mandate genesis "<your idea>"               # LLM-driven court designer
 $ mandate evolve "<your evolution>"               # natural-language amendment
 ```
 
+> **v0.3.1-alpha (May 2026):** `create` and `validate` are live. Until npm publish, run from this repo:
+>
+> ```bash
+> git clone https://github.com/liujiarui0918/mandate
+> cd mandate && npm install
+> node packages/cli/bin/mandate.mjs create my-empire --template both
+> node packages/cli/bin/mandate.mjs validate my-empire
+> ```
+>
+> `genesis`, `evolve`, `run`, `court`, `audit`, `ratify`, `veto` land in v0.4.
+
 ## Use Cases — Any Task Becomes a Court
 
 Mandate is a meta-framework: one prompt to `mandate genesis` and you get a fully wired court for any of these (or anything else):

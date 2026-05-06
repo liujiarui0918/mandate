@@ -69,6 +69,17 @@ $ npx mandate genesis "<你的想法>"               # LLM 驱动的元朝廷设
 $ mandate evolve "<你想要的演化>"                # 自然语言修宪
 ```
 
+> **v0.3.1-alpha（2026 年 5 月）：** `create` 和 `validate` 已可用。npm 发布前先克隆仓库直接跑：
+>
+> ```bash
+> git clone https://github.com/liujiarui0918/mandate
+> cd mandate && npm install
+> node packages/cli/bin/mandate.mjs create my-empire --template both
+> node packages/cli/bin/mandate.mjs validate my-empire
+> ```
+>
+> `genesis` / `evolve` / `run` / `court` / `audit` / `ratify` / `veto` 在 v0.4 上线。
+
 ## 用例——任何任务都能成朝廷
 
 Mandate 是元框架：一句 prompt 给 `mandate genesis`，你就得到一座为该任务而生的完整朝廷：
