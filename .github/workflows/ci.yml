@@ -24,3 +24,5 @@ jobs:
         run: node --test tests/lint-terms.test.mjs
       - name: Lint examples
         run: node --test tests/lint-examples.test.mjs
+      - name: Test workspace packages
+        run: npm run test:packages
