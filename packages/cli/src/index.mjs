@@ -9,6 +9,7 @@
 
 import { Command } from 'commander';
 import { runCreate } from './commands/create.mjs';
+import { runValidate, printValidationReport } from './commands/validate.mjs';
 
 const PKG_VERSION = '0.3.0-alpha.0';
 
@@ -50,12 +51,22 @@ export async function main(argv) {
       }
     });
 
-  for (const sub of ['genesis', 'evolve', 'run', 'audit', 'ratify', 'veto', 'validate', 'status', 'explain']) {
+  for (const sub of ['genesis', 'evolve', 'run', 'audit', 'ratify', 'veto', 'status', 'explain']) {
     program
       .command(`${sub} [args...]`)
       .description(`(coming in v0.4)`)
       .action(notImplemented(sub));
   }
+
+  program
+    .command('validate [target]')
+    .description('static lint of a Mandate court (constitution + decomposition + topology)')
+    .option('--schema-root <path>', 'override schema directory (default: <repo>/spec)')
+    .action(async (target, opts) => {
+      const result = runValidate(target ?? '.', { schemaRoot: opts.schemaRoot });
+      printValidationReport(result);
+      process.exit(result.ok ? 0 : 1);
+    });
 
   program
     .command('court <session>')
