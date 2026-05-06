@@ -1,0 +1,26 @@
+{
+  "name": "@mandate/cli",
+  "version": "0.3.0-alpha.0",
+  "description": "Mandate CLI: create / genesis / evolve / run / court / audit / ratify / veto / validate / status / explain.",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.mjs",
+  "bin": {
+    "mandate": "./bin/mandate.mjs",
+    "create-mandate": "./bin/create-mandate.mjs"
+  },
+  "files": [
+    "src",
+    "bin",
+    "templates"
+  ],
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@mandate/validators": "0.3.0-alpha.0",
+    "commander": "^12.1.0",
+    "prompts": "^2.4.2",
+    "js-yaml": "^4.1.0"
+  }
+}

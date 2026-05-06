@@ -1,0 +1,46 @@
+version: 1.0.0
+project: research-demo
+language: both
+charter_path: charter.md
+
+topology:
+  enforce_no_parent_child: true
+  on_violation: hard_block
+
+censor:
+  default_tier: balanced
+  overrides:
+    chancellor: { strategy: full, async: false }
+    soldier:    { strategy: sample, rate: 0.10 }
+
+historian:
+  reflection_period_days: 7
+  reflection_period_tasks: 50
+  audit_red_lines:
+    - chronicle_size_mb: 100
+    - error_rate_in_window: 0.15
+
+models:
+  chancellor: { preferred: gpt-5.5, fallback: [gpt-5, gpt-5-pro, claude-opus-4-7-1m] }
+  cto:        { preferred: claude-opus-4-7-1m, fallback: [claude-opus-4-7, claude-sonnet-4-7] }
+  scout:      { preferred: gemini-3.1-pro, fallback: [gemini-2.5-pro, perplexity-pro] }
+  soldier:    { preferred: gpt-5.5, fallback: [gpt-5, claude-sonnet-4-7] }
+  secretary:  { preferred: gemini-3.1-pro, fallback: [gemini-2.5-pro, claude-sonnet-4-7] }
+  censor:     { preferred: grok-4.3, fallback: [grok-4, command-r-plus] }
+  historian:  { preferred: gpt-5.5, fallback: [gpt-5, gpt-5-pro, claude-opus-4-7-1m] }
+
+skill_resolution:
+  discovery_order: [local, mandate-registry, npm, clawhub]
+  auto_assign: true
+
+court_cadence:
+  enabled: true
+  morning_court:
+    time: "09:00"
+    emperor_decision_timeout_minutes: 30
+    on_timeout: approve_all
+  evening_court:
+    time: "21:00"
+    leaf_report_required: true
+    skip_if_no_activity: true
+  timezone: Asia/Shanghai

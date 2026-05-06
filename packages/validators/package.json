@@ -1,0 +1,21 @@
+{
+  "name": "@mandate/validators",
+  "version": "0.3.0-alpha.0",
+  "description": "Mandate validators: schema validation + topology-check (forbidden parent-child).",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.mjs",
+  "exports": {
+    ".": "./src/index.mjs",
+    "./topology": "./src/topology-check.mjs",
+    "./schema": "./src/schema-validator.mjs"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "js-yaml": "^4.1.0"
+  }
+}

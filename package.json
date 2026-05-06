@@ -1,17 +1,23 @@
 {
   "name": "mandate",
-  "version": "0.0.0",
+  "version": "0.3.0-alpha.0",
   "private": true,
   "description": "Methodology + reference framework for self-governing multi-agent imperial courts.",
   "license": "MIT",
   "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "test": "node --test tests/*.test.mjs",
+    "test": "npm run lint && npm run test:packages",
+    "lint": "node --test tests/*.test.mjs",
     "lint:schemas": "node --test tests/lint-schemas.test.mjs",
     "lint:readme": "node --test tests/lint-readme-parity.test.mjs",
     "lint:articles": "node --test tests/lint-articles.test.mjs",
     "lint:terms": "node --test tests/lint-terms.test.mjs",
-    "lint:examples": "node --test tests/lint-examples.test.mjs"
+    "lint:examples": "node --test tests/lint-examples.test.mjs",
+    "test:packages": "npm run test --workspaces --if-present",
+    "build:packages": "npm run build --workspaces --if-present"
   },
   "devDependencies": {
     "ajv": "^8.17.1",
