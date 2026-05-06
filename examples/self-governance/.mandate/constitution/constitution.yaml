@@ -31,3 +31,15 @@ models:
 skill_resolution:
   discovery_order: [local, mandate-registry, npm, clawhub]
   auto_assign: true
+
+court_cadence:
+  enabled: true
+  morning_court:
+    time: "08:00"
+    emperor_decision_timeout_minutes: 15
+    on_timeout: escalate
+  evening_court:
+    time: "22:00"
+    leaf_report_required: true
+    skip_if_no_activity: false
+  timezone: Asia/Shanghai

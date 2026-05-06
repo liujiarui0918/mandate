@@ -70,6 +70,30 @@
         },
         "auto_assign": { "type": "boolean" }
       }
+    },
+    "court_cadence": {
+      "type": "object",
+      "description": "Daily cadence (v0.2): morning court + evening court",
+      "properties": {
+        "enabled": { "type": "boolean", "default": true },
+        "morning_court": {
+          "type": "object",
+          "properties": {
+            "time": { "type": "string" },
+            "emperor_decision_timeout_minutes": { "type": "integer", "minimum": 1 },
+            "on_timeout": { "enum": ["approve_all", "hold", "escalate"] }
+          }
+        },
+        "evening_court": {
+          "type": "object",
+          "properties": {
+            "time": { "type": "string" },
+            "leaf_report_required": { "type": "boolean" },
+            "skip_if_no_activity": { "type": "boolean" }
+          }
+        },
+        "timezone": { "type": "string" }
+      }
     }
   }
 }

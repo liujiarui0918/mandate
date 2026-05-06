@@ -1,8 +1,8 @@
 # Mandate · 天命
 
-> *奉天承运，朝廷自治。*
+> **一句话 → 一座为你目标而生的自治朝廷。**
 >
-> 一套面向多 agent 自治朝廷的方法论 + 参考框架。双语一等公民。
+> *奉天承运，朝廷自治。* Mandate 把任何目标变成一座自治的多 agent 朝廷——含每日早朝晚朝。双语一等公民。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Read in English](https://img.shields.io/badge/lang-English-blue.svg)](README.md)
@@ -68,6 +68,38 @@ $ npx create-mandate my-empire --template both    # 静态脚手架（5 秒）
 $ npx mandate genesis "<你的想法>"               # LLM 驱动的元朝廷设计
 $ mandate evolve "<你想要的演化>"                # 自然语言修宪
 ```
+
+## 用例——任何任务都能成朝廷
+
+Mandate 是元框架：一句 prompt 给 `mandate genesis`，你就得到一座为该任务而生的完整朝廷：
+
+| 领域 | 一句话 prompt → |
+|---|---|
+| 🔬 研究 | *"出一份关于 2026 年聚变能源现状的 10K 字报告"* |
+| 📈 交易 | *"每日监控股市，每个早朝呈上 3 个机会"* |
+| 🐦 内容 | *"运营我的 Twitter：发帖、互动、分析、合规"* |
+| 💻 编程 | *"4 周内打造并发布一个 Twitter 克隆"* |
+| 📨 客服 | *"分类回复邮件；边界场景上报"* |
+| 🛠️ 运维 | *"7×24 监控我的基础设施 + 事故响应"* |
+| 📣 营销 | *"规划并执行一个 30 天产品 campaign"* |
+| 🪞 自治 | *"反思朝廷自身；提议制度修订"* |
+
+每个领域共享同一套骨架：8 角色、生命周期 hooks、锦衣卫层、史官、每日节律——只是项目组、章程、skill pack 因任务而异。
+
+## 每日节律——早朝与晚朝
+
+每个 Mandate 朝廷都跑在 24h 心跳上：
+
+- **早朝（默认 09:00）**：宰相把昨日成果奏报皇帝，拟今日议程。皇帝批红、修订或改向，决议级联到每一个叶子节点。
+- **晚朝（默认 21:00）**：每个叶子节点（士兵/斥候/文官）写 `daily_report.md`。军师按组汇总；宰相综合；报告归档候次日早朝复审。
+
+```bash
+$ mandate court morning      # 手动触发早朝
+$ mandate court evening      # 手动触发晚朝
+$ mandate court status       # 下次时间 + 上次结果
+```
+
+这就是 Mandate 能作为项目*基底层*的原因：可预期触点、失败遏制、审计轨迹由构造而成。完整机制见 [文章 06](docs/articles/06-daily-court-cadence.zh.md)。
 
 ## Phase A——方法论（你现在所在）
 
@@ -136,6 +168,7 @@ Phase A 进行中。Star 此仓库以追踪 Phase B & C 的开发。
 - [文章 03：拓扑宪法](docs/articles/03-topology-constitution.zh.md)
 - [文章 04：史官与制度修订 PR](docs/articles/04-historian-and-reform-prs.zh.md)
 - [文章 05：双语一等公民](docs/articles/05-bilingual-first-class.zh.md)
+- [文章 06：早朝晚朝（每日节律）](docs/articles/06-daily-court-cadence.zh.md)
 
 ## 贡献
 

@@ -14,3 +14,8 @@ ratify:     { zh: 批红, en: ratify }
 veto:       { zh: 留中, en: veto }
 genesis:    { zh: 开国, en: genesis }
 evolve:     { zh: 演化, en: evolve }
+morning_court: { zh: 早朝, en: morning_court, alias: morning_session }
+evening_court: { zh: 晚朝, en: evening_court, alias: evening_session }
+daily_report:  { zh: 日报, en: daily_report }
+agenda:        { zh: 议程, en: agenda }
+ratify_agenda: { zh: 批红议程, en: ratify_agenda }

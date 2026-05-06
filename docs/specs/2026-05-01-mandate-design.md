@@ -1,7 +1,7 @@
 # Mandate (天命) — Design Specification
 
-> **Status:** Draft v0.1
-> **Date:** 2026-05-01
+> **Status:** Draft v0.2
+> **Date:** 2026-05-01 (v0.1) · 2026-05-06 (v0.2: Daily Court Cadence + meta-framework framing)
 > **Author:** ljr-w + Claude (brainstorming session)
 > **Slogan:** *The Mandate of Heaven, in code.* / *奉天承运，朝廷自治。*
 
@@ -853,4 +853,157 @@ See `constitution/terms.yaml`.
 
 ---
 
-*End of design specification. Ratify, veto, or amend.*
+*End of design specification (v0.1). v0.2 addendum follows.*
+
+---
+
+## 17. Daily Court Cadence — Morning + Evening Sessions (v0.2)
+
+### 17.1 Why a Cadence
+
+Without a heartbeat, an agent system drifts. Tasks pile up, status is opaque, the Emperor (human) loses the picture. A daily cadence imposes a 24h rhythm: the morning sets direction, the evening closes the books. This is the *standup + retro* of organizational practice, dressed in imperial form.
+
+This single mechanism converts Mandate from "a framework you configure once" into "a court that runs itself daily" — and is what makes Mandate suitable as the **base layer for any project**: any domain (research, trading, content, ops, coding) gets the same predictable rhythm without per-domain customization.
+
+### 17.2 Morning Court (早朝)
+
+**Default time:** 09:00 local. Configurable.
+
+```
+Step 1  Chancellor loads chronicle/<yesterday>.jsonl
+Step 2  Chancellor authors morning_court_report.md:
+        - Yesterday: completion summary per project group
+        - Outstanding / blocked items
+        - Censor + Historian highlights
+        - Today's draft agenda
+Step 3  Report rendered to Emperor (CLI panel / dashboard popup)
+Step 4  Emperor decides: approve / amend / redirect
+        - Timeout default 30 min → approve_all
+Step 5  Chancellor materializes today_decomposition.yaml from ratified agenda
+Step 6  Cascade dispatch: triggers on_morning_dispatch_received
+Step 7  Each group's CTO authors today_group_brief.md
+        and dispatches further to Scout/Soldier/Secretary
+```
+
+### 17.3 Evening Court (晚朝)
+
+**Default time:** 21:00 local. Configurable.
+
+```
+Step 1  Leaf nodes (Soldier / Scout / Secretary) fire on_evening_self_report:
+        - daily_report.md per node:
+          * tasks completed today
+          * blockers / unfinished + reasons
+          * tomorrow's expected work (optional)
+Step 2  Each group's CTO fires on_evening_aggregate:
+        - reads all leaf daily_report.md in this group
+        - produces group_evening_report.md
+Step 3  Chancellor fires on_evening_synthesis:
+        - aggregates all group_evening_report.md
+        - produces chancellor_evening_report.md
+        - filed in chronicle/evening-courts/{date}.md
+        - awaits next morning's review
+```
+
+### 17.4 Configuration Schema (added to constitution.yaml)
+
+```yaml
+court_cadence:
+  enabled: true                              # set false to disable cadence entirely
+  morning_court:
+    time: "09:00"                            # 24h "HH:MM" or cron expression
+    emperor_decision_timeout_minutes: 30
+    on_timeout: approve_all                  # approve_all | hold | escalate
+  evening_court:
+    time: "21:00"
+    leaf_report_required: true               # every leaf node must produce daily_report
+    skip_if_no_activity: true                # skip cadence if zero tasks ran today
+  timezone: Asia/Shanghai                    # IANA tz name
+```
+
+### 17.5 New Lifecycle Hook Events
+
+Four new events extend §4.2:
+
+| Event | Fires on | Default subscribers |
+|---|---|---|
+| `on_morning_court_start` | scheduler tick at morning time | Chancellor only |
+| `on_morning_dispatch_received` | after Emperor ratifies agenda | CTO, then cascades to Scout/Soldier/Secretary |
+| `on_evening_report_due` | scheduler tick at evening time | every leaf node (Scout, Soldier, Secretary) |
+| `on_evening_aggregate_due` | after all leaves report | CTO first, then Chancellor |
+
+Hook authoring follows the same schema in §4.3. Example for Chancellor:
+
+```yaml
+hooks:
+  on_morning_court_start:
+    - must: "Read yesterday's chronicle and produce morning_court_report.md"
+      writes_to: chronicle/morning-courts/{{date}}.md
+      schema:
+        required: [yesterday_summary, outstanding_items, today_draft_agenda]
+    - must: "Render report to Emperor; await ratification"
+      timeout_seconds: 1800                   # 30 minutes
+      retry_policy: none
+  on_evening_synthesis:
+    - must: "Aggregate all group_evening_report.md into chancellor_evening_report.md"
+      writes_to: chronicle/evening-courts/{{date}}.md
+```
+
+### 17.6 New CLI Commands
+
+| Command | Effect |
+|---|---|
+| `mandate court morning` | Manually trigger morning court (good for first run / debug) |
+| `mandate court evening` | Manually trigger evening court |
+| `mandate court status` | Show next scheduled court time + last court outcome |
+| `mandate court skip --today` | Skip today's cadence (holidays, manual override) |
+
+These integrate into §10's CLI surface alongside `run / genesis / evolve / audit / ratify / veto / validate / status / explain`.
+
+### 17.7 Filesystem Additions
+
+Extends §7.1:
+
+```
+.mandate/
+├── chronicle/
+│   ├── morning-courts/
+│   │   └── 2026-05-04.md                    # 早朝奏报 + emperor ratification record
+│   └── evening-courts/
+│       └── 2026-05-04.md                    # 晚朝综合报告
+├── workspace/
+│   ├── today_agenda.md                      # produced by morning court
+│   └── groups/<group_id>/
+│       ├── today_brief.md                   # produced by CTO after morning dispatch
+│       └── workers/<worker_id>_daily_report.md  # leaf evening report
+```
+
+### 17.8 Why This Is the Defining Feature
+
+1. **Predictable human-in-the-loop touchpoints** — instead of ad-hoc interruptions, the Emperor reviews at fixed times, freeing both human and machine.
+2. **Failure-mode containment** — if a group drifts, the next morning's report surfaces it. If a leaf is stuck, evening report flags it. No silent failures spanning days.
+3. **Audit trail by construction** — every working day produces a paired `morning-courts/{date}.md` + `evening-courts/{date}.md`. The court's history reads like a real organization's records.
+4. **Cultural resonance** — "早朝" / "晚朝" in Chinese imperial tradition (Ming-Qing daily 朝会), "morning briefing / evening debrief" in Western corporate culture. Both audiences immediately grok the metaphor.
+5. **Meta-framework enabler** — combined with `mandate genesis "<any task>"`, this means *any project* gets the same daily rhythm out of the box. Mandate becomes the operating system, the user's prompt is the only domain-specific input.
+
+### 17.9 Bilingual Term Additions (terms.yaml)
+
+```yaml
+morning_court: { zh: 早朝, en: morning_court, alias: morning_session }
+evening_court: { zh: 晚朝, en: evening_court, alias: evening_session }
+daily_report:  { zh: 日报, en: daily_report }
+agenda:        { zh: 议程, en: agenda }
+ratify_agenda: { zh: 批红议程, en: ratify_agenda }
+```
+
+### 17.10 Changes to Other Sections
+
+- **§4.2** (Hook trigger points): add the four events from §17.5.
+- **§7.1** (Filesystem layout): add the three new path patterns from §17.7.
+- **§10.4** (Auxiliary commands): add the four `mandate court ...` commands.
+- **§12** (Two Demos): both demos now run on the daily cadence by default; first morning court is auto-triggered on `mandate run` if no agenda exists yet.
+- **§13** (Roadmap): cadence is part of Phase A spec; CLI implementation in Phase B.M8; dashboard renders cadence timeline in Phase C.M5.
+
+---
+
+*End of v0.2 addendum. Ratify, veto, or amend.*

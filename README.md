@@ -1,8 +1,8 @@
 # Mandate · 天命
 
-> *The Mandate of Heaven, in code.*
+> **One sentence → a working multi-agent court for any task.**
 >
-> A methodology + reference framework for self-governing multi-agent imperial courts. Bilingual first-class.
+> *The Mandate of Heaven, in code.* Mandate turns any goal into a self-governing imperial court of agents — with daily morning and evening sessions. Bilingual first-class.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Read in Chinese](https://img.shields.io/badge/lang-中文-red.svg)](README.zh.md)
@@ -68,6 +68,38 @@ $ npx create-mandate my-empire --template both    # static scaffold (5s)
 $ npx mandate genesis "<your idea>"               # LLM-driven court designer
 $ mandate evolve "<your evolution>"               # natural-language amendment
 ```
+
+## Use Cases — Any Task Becomes a Court
+
+Mandate is a meta-framework: one prompt to `mandate genesis` and you get a fully wired court for any of these (or anything else):
+
+| Domain | One-sentence prompt → |
+|---|---|
+| 🔬 Research | *"Compile a 10K-word report on fusion energy in 2026"* |
+| 📈 Trading | *"Monitor stocks daily, surface 3 opportunities each morning"* |
+| 🐦 Content | *"Run my Twitter account: post, engage, analyze, comply"* |
+| 💻 Coding | *"Build and ship a Twitter clone in 4 weeks"* |
+| 📨 Customer Support | *"Triage and respond to my inbox; escalate edge cases"* |
+| 🛠️ Ops | *"24/7 monitor + incident response for my infrastructure"* |
+| 📣 Marketing | *"Plan and execute a 30-day product campaign"* |
+| 🪞 Self-Governance | *"Reflect on this court itself; propose institutional reforms"* |
+
+Each domain gets the same skeleton: 8 imperial roles, lifecycle hooks, censor layer, historian, daily cadence — only the project groups, charters and skill packs differ.
+
+## Daily Cadence — Morning + Evening Sessions
+
+Every Mandate court runs on a 24h heartbeat:
+
+- **早朝 Morning Court (default 09:00):** Chancellor reports yesterday's results to the Emperor and proposes today's agenda. Emperor ratifies, amends, or redirects. Decisions cascade down to every leaf node.
+- **晚朝 Evening Court (default 21:00):** Each leaf node (Soldier / Scout / Secretary) writes a `daily_report.md`. CTOs aggregate per-group; Chancellor synthesizes; report awaits next morning's review.
+
+```bash
+$ mandate court morning      # trigger early-morning session manually
+$ mandate court evening      # trigger evening debrief manually
+$ mandate court status       # next scheduled session + last outcome
+```
+
+This is what makes Mandate suitable as a project's *base layer*: predictable touchpoints, failure containment, audit trail by construction. See [Article 06](docs/articles/06-daily-court-cadence.en.md) for the full mechanism.
 
 ## Phase A — Methodology (You Are Here)
 
@@ -136,6 +168,7 @@ Phase A in progress. Star this repo to follow Phase B & C development.
 - [Article 03: Topology Constitution](docs/articles/03-topology-constitution.en.md)
 - [Article 04: Historian and Reform PRs](docs/articles/04-historian-and-reform-prs.en.md)
 - [Article 05: Bilingual First-Class Citizenship](docs/articles/05-bilingual-first-class.en.md)
+- [Article 06: Daily Court Cadence](docs/articles/06-daily-court-cadence.en.md)
 
 ## Contributing
 
