@@ -1,18 +1,41 @@
 {
   "name": "@mandate/cli",
   "version": "0.3.0-alpha.0",
-  "description": "Mandate CLI: create / genesis / evolve / run / court / audit / ratify / veto / validate / status / explain.",
+  "description": "Mandate CLI — scaffold and operate self-governing multi-agent imperial courts. Provides create / validate (live) and genesis / evolve / run / court / audit / ratify / veto / status / explain (v0.4).",
+  "keywords": [
+    "mandate",
+    "multi-agent",
+    "agents",
+    "cli",
+    "scaffold",
+    "imperial-court",
+    "agent-orchestration",
+    "claude-code",
+    "openclaw"
+  ],
+  "homepage": "https://github.com/liujiarui0918/mandate#readme",
+  "bugs": {
+    "url": "https://github.com/liujiarui0918/mandate/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liujiarui0918/mandate.git",
+    "directory": "packages/cli"
+  },
   "license": "MIT",
+  "author": "ljr-w <liujiarui0918@users.noreply.github.com>",
   "type": "module",
   "main": "src/index.mjs",
   "bin": {
-    "mandate": "./bin/mandate.mjs",
-    "create-mandate": "./bin/create-mandate.mjs"
+    "mandate": "bin/mandate.mjs",
+    "create-mandate": "bin/create-mandate.mjs"
   },
   "files": [
     "src",
     "bin",
-    "templates"
+    "templates",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "test": "node --test tests/*.test.mjs"
@@ -22,5 +45,11 @@
     "commander": "^12.1.0",
     "prompts": "^2.4.2",
     "js-yaml": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
