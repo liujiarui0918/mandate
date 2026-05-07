@@ -50,3 +50,25 @@ export {
   resolveAllModels,
   describeResolution,
 } from './model-resolver.mjs';
+
+export {
+  scheduleForEvent,
+  shouldRetry,
+  nextDelayMs,
+  SUPPORTED_EVENTS,
+} from './hook-scheduler.mjs';
+
+export {
+  shouldInvokeCensor,
+  resolveCensorPolicy,
+  modelFamily,
+  assertCensorIsolation,
+  interceptOutput,
+  SUPPORTED_TIERS,
+} from './censor-interceptor.mjs';
+
+export {
+  HookExecutionError,
+  executeHook,
+  fireEvent,
+} from './orchestrator.mjs';
