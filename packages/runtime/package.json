@@ -1,0 +1,55 @@
+{
+  "name": "@mandate/runtime",
+  "version": "0.3.0-alpha.0",
+  "description": "Mandate runtime — constitution loader, terms resolver, chronicle (JSONL append), memory lifecycle, and model fallback resolver. The execution engine for self-governing multi-agent imperial courts.",
+  "keywords": [
+    "mandate",
+    "multi-agent",
+    "agents",
+    "runtime",
+    "constitution",
+    "chronicle",
+    "imperial-court",
+    "agent-orchestration",
+    "yaml"
+  ],
+  "homepage": "https://github.com/liujiarui0918/mandate#readme",
+  "bugs": {
+    "url": "https://github.com/liujiarui0918/mandate/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liujiarui0918/mandate.git",
+    "directory": "packages/runtime"
+  },
+  "license": "MIT",
+  "author": "ljr-w <liujiarui0918@users.noreply.github.com>",
+  "type": "module",
+  "main": "src/index.mjs",
+  "exports": {
+    ".": "./src/index.mjs",
+    "./constitution": "./src/constitution.mjs",
+    "./i18n": "./src/i18n.mjs",
+    "./chronicle": "./src/chronicle.mjs",
+    "./memory": "./src/memory.mjs",
+    "./model-resolver": "./src/model-resolver.mjs"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@mandate/validators": "0.3.0-alpha.0",
+    "js-yaml": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
