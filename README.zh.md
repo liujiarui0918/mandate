@@ -127,7 +127,7 @@ $ mandate court status       # 下次时间 + 上次结果
 ## Phase B——参考实现（第 5-12 周）
 
 TypeScript pnpm monorepo：
-- `@mandate/core` ——runtime（hook 调度器、锦衣卫拦截器、文件锁）
+- `@mandate/runtime` ——runtime（hook 调度器、锦衣卫拦截器、文件锁）
 - `@mandate/cli` ——三命令 + 辅助命令
 - `@mandate/adapters` ——MCP / Claude Code / OpenClaw / CLI
 - `@mandate/packs-imperial-v1` ——八个 skill pack

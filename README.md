@@ -127,7 +127,7 @@ You can implement Mandate today on top of LangGraph, Claude Code, Paperclip, or 
 ## Phase B — Reference Runtime (Coming Weeks 5-12)
 
 A TypeScript pnpm monorepo:
-- `@mandate/core` — runtime (hook scheduler, censor interceptor, file lock)
+- `@mandate/runtime` — runtime (hook scheduler, censor interceptor, file lock)
 - `@mandate/cli` — three hero commands + auxiliaries
 - `@mandate/adapters` — MCP / Claude Code / OpenClaw / CLI
 - `@mandate/packs-imperial-v1` — eight skill packs

@@ -4,7 +4,7 @@
 
 **Goal:** Ship Mandate v1 — a methodology + reference framework for self-governing multi-agent imperial courts — across three sequenced phases (Methodology / Runtime / Dashboard).
 
-**Architecture:** Phase A is a docs-and-spec project (zero runtime). Phase B is a TypeScript pnpm monorepo with `@mandate/core` runtime, `mandate` CLI, four protocol adapters, eight imperial skill packs. Phase C is a Next.js 15 dashboard atop the same filesystem-as-source-of-truth, no new backend.
+**Architecture:** Phase A is a docs-and-spec project (zero runtime). Phase B is a TypeScript pnpm monorepo with `@mandate/runtime` runtime, `mandate` CLI, four protocol adapters, eight imperial skill packs. Phase C is a Next.js 15 dashboard atop the same filesystem-as-source-of-truth, no new backend.
 
 **Tech Stack:** Phase A: markdown + JSON Schema + ajv. Phase B: TypeScript 5.6, pnpm workspaces, tsx, Zod, Vitest, ajv, lunr.js, gray-matter, js-yaml, commander, prompts. Phase C: Next.js 15 (App Router), React 19, Tailwind v4, shadcn/ui, tRPC, React Flow, Server-Sent Events.
 
@@ -1777,7 +1777,7 @@ You can implement Mandate today on top of LangGraph, Claude Code, Paperclip, or 
 ## Phase B — Reference Runtime (Coming Weeks 5-12)
 
 A TypeScript pnpm monorepo:
-- `@mandate/core` — runtime (hook scheduler, censor interceptor, file lock)
+- `@mandate/runtime` — runtime (hook scheduler, censor interceptor, file lock)
 - `@mandate/cli` — three hero commands + auxiliaries
 - `@mandate/adapters` — MCP / Claude Code / OpenClaw / CLI
 - `@mandate/packs-imperial-v1` — eight skill packs
@@ -1947,7 +1947,7 @@ $ mandate evolve "<你想要的演化>"                # 自然语言修宪
 ## Phase B——参考实现（第 5-12 周）
 
 TypeScript pnpm monorepo：
-- `@mandate/core` ——runtime（hook 调度器、锦衣卫拦截器、文件锁）
+- `@mandate/runtime` ——runtime（hook 调度器、锦衣卫拦截器、文件锁）
 - `@mandate/cli` ——三命令 + 辅助命令
 - `@mandate/adapters` ——MCP / Claude Code / OpenClaw / CLI
 - `@mandate/packs-imperial-v1` ——八个 skill pack
@@ -2173,7 +2173,7 @@ mandate/                                       (root, monorepo)
 ├── tsconfig.base.json
 ├── .changeset/
 ├── packages/
-│   ├── core/                                  # @mandate/core
+│   ├── core/                                  # @mandate/runtime
 │   │   ├── package.json
 │   │   ├── tsconfig.json
 │   │   ├── src/
@@ -2301,9 +2301,9 @@ export function checkTopology(d: Decomposition): TopologyResult {
 }
 ```
 
-**Exit gate:** All validator tests green; can be consumed by `@mandate/core`.
+**Exit gate:** All validator tests green; can be consumed by `@mandate/runtime`.
 
-### B.M3 — `@mandate/core` runtime foundations (Weeks 6-7)
+### B.M3 — `@mandate/runtime` runtime foundations (Weeks 6-7)
 
 **Tasks:**
 - B.M3.T1 `constitution.ts` — load + validate + version-bump `constitution.yaml`
@@ -2354,7 +2354,7 @@ export async function resolveModel(
 
 **Exit gate:** Each module unit-tested; `runtime.ts` not yet implemented but all primitives ready.
 
-### B.M4 — `@mandate/core` hook scheduler & censor (Weeks 7-8)
+### B.M4 — `@mandate/runtime` hook scheduler & censor (Weeks 7-8)
 
 **Tasks:**
 - B.M4.T1 `hook-scheduler.ts` — given a role + lifecycle event, inject required hooks into the agent prompt and verify outputs
@@ -2500,7 +2500,7 @@ export async function create(targetDir: string, options: { template: string }) {
 
 A Next.js 15 (App Router) web application that reads `.mandate/` directly from a user-pointed directory. No new backend — Phase B's filesystem is the source of truth. Live updates via Server-Sent Events (file watchers).
 
-**Stack:** Next.js 15, React 19, Tailwind v4, shadcn/ui, tRPC, React Flow (topology graph), `chokidar` (file watch), `@mandate/core` (constitution loader, terms resolver, validators).
+**Stack:** Next.js 15, React 19, Tailwind v4, shadcn/ui, tRPC, React Flow (topology graph), `chokidar` (file watch), `@mandate/runtime` (constitution loader, terms resolver, validators).
 
 **Hosting:** Local-first (`mandate dashboard` opens `localhost:3777`). Self-hostable to Vercel / Cloudflare Pages for shared courts.
 
