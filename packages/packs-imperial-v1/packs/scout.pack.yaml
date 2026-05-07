@@ -1,0 +1,42 @@
+name: imperial-scout-v1
+version: 0.3.0-alpha.0
+role: scout
+description:
+  en: Scout's standard skill pack — web search, deep research, source verification, knowledge base lookup. Multi-protocol bundle leveraging MCP + Claude Code + OpenClaw + CLI tools.
+  zh: 斥候标准技能包：web 搜索、深度调研、来源核验、知识库查询。多协议打包(MCP + Claude Code + OpenClaw + CLI)。
+
+skills:
+  - protocol: mcp
+    name: brave-search
+    description: Web search via Brave Search MCP server
+
+  - protocol: mcp
+    name: tavily
+    description: Alternative web search via Tavily MCP (better for technical/academic content)
+
+  - protocol: claude-skill
+    name: deep-research
+    description: Multi-source research with citation synthesis (Claude Code skill)
+
+  - protocol: openclaw-skill
+    name: web-fetch
+    description: Fetch + parse arbitrary URLs (OpenClaw skill from ClawHub)
+
+  - protocol: cli
+    name: gemini-search
+    description: Google search via Gemini CLI (--google-search flag)
+    args: ["--google-search"]
+
+  - protocol: mandate-builtin
+    name: source-verifier
+    description: Cross-reference claims across multiple sources; flag single-source assertions
+
+  - protocol: mandate-builtin
+    name: scout-report-author
+    description: Compose scout_report.md with structured findings + cited sources + confidence-per-finding
+
+prompt_includes:
+  - As Scout (斥候), your job is to gather evidence — NOT to decide.
+  - Every finding must cite sources; flag any claim supported by only one source.
+  - Prefer recent sources (last 12 months) unless investigating historical context.
+  - Submit scout_report.md with required schema fields — findings, sources, confidence_per_finding.

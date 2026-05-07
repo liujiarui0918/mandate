@@ -1,0 +1,37 @@
+name: imperial-chancellor-v1
+version: 0.3.0-alpha.0
+role: chancellor
+description:
+  en: Chancellor's standard skill pack — task decomposition, dependency-graph analysis, topology validation, group dispatch.
+  zh: 宰相标准技能包：任务拆解、依赖图分析、拓扑校验、项目组分派。
+
+skills:
+  - protocol: mandate-builtin
+    name: task-decomposer
+    description: Refine an imperial mandate into N parallel project groups (decomposition.yaml)
+
+  - protocol: mandate-builtin
+    name: topology-check
+    description: Validate inter-group dependency graph; reject decision_affecting cross-group deps (SPEC §3.3 layer 2)
+
+  - protocol: mandate-builtin
+    name: group-charter-writer
+    description: Generate group_charter.md per project group from the master decomposition
+
+  - protocol: mandate-builtin
+    name: status-aggregator
+    description: Sweep all groups' progress and synthesize status_report.md
+
+  - protocol: claude-skill
+    name: deep-research
+    description: Optional — when the chancellor needs domain context to refine mandate
+
+  - protocol: openclaw-skill
+    name: web-search
+    description: Optional — quick fact lookup when refining mandate scope
+
+prompt_includes:
+  - As Chancellor, you receive the imperial decree and decompose it.
+  - Project groups MUST be sibling-only — no decision_affecting cross-group deps.
+  - When violation detected, propose auto-merge rather than reject the entire decomposition.
+  - Every dispatched group_charter.md must specify goal + deadline + budget_tokens.

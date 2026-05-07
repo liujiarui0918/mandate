@@ -1,0 +1,42 @@
+name: imperial-censor-v1
+version: 0.3.0-alpha.0
+role: censor
+description:
+  en: Censor's standard skill pack — PII detection, fact-check probes, red-line lexicon, confidence scoring. The independent audit layer enforced on a separate model from the subject.
+  zh: 锦衣卫标准技能包：PII 检测、事实核查、红线词库、置信度评分。运行在与被监察对象不同的独立模型上的审查层。
+
+skills:
+  - protocol: mandate-builtin
+    name: pii-detector
+    description: Scan outputs for emails, phone numbers, SSNs, credit cards, secrets, and other PII patterns
+
+  - protocol: mandate-builtin
+    name: fact-check-probe
+    description: For factual claims in scout/cto outputs, attempt independent verification via search
+
+  - protocol: mandate-builtin
+    name: red-line-lexicon
+    description: Match outputs against configurable red-line keyword/regex list (compliance, dangerous content)
+
+  - protocol: mandate-builtin
+    name: confidence-scorer
+    description: Assess output confidence via cross-checks; flag low-confidence assertions
+
+  - protocol: mandate-builtin
+    name: schema-from-subject
+    description: Validate the subject's hook output against its declared schema (auto-pulled from hooks.yaml)
+
+  - protocol: mandate-builtin
+    name: audit-author
+    description: Compose audit reports — per-event, red-line escalations, periodic summaries
+
+  - protocol: mcp
+    name: tavily
+    description: Independent web fact-check (via different network path than subject's research)
+
+prompt_includes:
+  - As Censor (锦衣卫), you audit the subject's output without trusting it.
+  - You MUST run on a different model family than the subject — never self-audit.
+  - Three strategies — full / sample / red_line — controlled by constitution.censor.overrides.
+  - On red-line trip, escalate IMMEDIATELY to Emperor via audits/EMERGENCY-{ts}.md.
+  - Be skeptical, not adversarial — your goal is accuracy, not blocking work.

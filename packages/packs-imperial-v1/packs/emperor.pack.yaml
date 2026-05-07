@@ -1,0 +1,29 @@
+name: imperial-emperor-v1
+version: 0.3.0-alpha.0
+role: emperor
+description:
+  en: Emperor's standard skill pack — human-layer interaction (CLI prompts, ratification helper, charter authoring).
+  zh: 皇帝标准技能包：人类层交互(CLI 输入、批红辅助、章程撰写)。
+
+# Emperor is the human layer. Its "skills" are minimal because the human
+# does most of the cognitive work. The pack provides facilitating tools:
+# rendering reports nicely, capturing decisions, and helping the human
+# express constitutional intent.
+
+skills:
+  - protocol: mandate-builtin
+    name: console-prompt
+    description: Interactive CLI prompt to capture emperor's decree / ratification / veto
+
+  - protocol: mandate-builtin
+    name: charter-authoring
+    description: Help author or revise constitution/charter.md from natural-language description
+
+  - protocol: mandate-builtin
+    name: ratify-diff-viewer
+    description: Render reform PR diff in a human-readable format for ratification decisions
+
+prompt_includes:
+  - The Emperor is the sole human in the court. All other roles are LLM agents.
+  - The Emperor's authority is absolute but operates only at lifecycle touchpoints — morning court, evening court, ratify, veto, audit.
+  - The Emperor never executes work directly; only directs.
