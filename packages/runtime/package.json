@@ -32,6 +32,7 @@
     "./i18n": "./src/i18n.mjs",
     "./chronicle": "./src/chronicle.mjs",
     "./memory": "./src/memory.mjs",
+    "./file-lock": "./src/file-lock.mjs",
     "./model-resolver": "./src/model-resolver.mjs"
   },
   "files": [

@@ -20,3 +20,33 @@ export {
   readChronicle,
   readChronicleRange,
 } from './chronicle.mjs';
+
+export {
+  workspacePath,
+  snapshotDirPath,
+  snapshotTimestamp,
+  initWorkspace,
+  snapshotWorkspace,
+  clearGroupWorkspace,
+  readArtifact,
+  writeArtifact,
+  listSnapshots,
+} from './memory.mjs';
+
+export {
+  lockfilePath,
+  tryAcquireLock,
+  isStale,
+  readLock,
+  releaseLock,
+  withLock,
+} from './file-lock.mjs';
+
+export {
+  modelHealthPath,
+  loadModelHealth,
+  saveModelHealth,
+  resolveModel,
+  resolveAllModels,
+  describeResolution,
+} from './model-resolver.mjs';
