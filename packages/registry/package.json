@@ -1,0 +1,46 @@
+{
+  "name": "@mandate/registry",
+  "version": "0.3.0-alpha.0",
+  "description": "Skill discovery + caching for Mandate. Resolves skill names against a configurable source chain (local / mandate-registry / npm / clawhub) and caches results to .mandate/skills/.",
+  "keywords": [
+    "mandate",
+    "multi-agent",
+    "skill-registry",
+    "skill-discovery",
+    "yaml"
+  ],
+  "homepage": "https://github.com/liujiarui0918/mandate#readme",
+  "bugs": {
+    "url": "https://github.com/liujiarui0918/mandate/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liujiarui0918/mandate.git",
+    "directory": "packages/registry"
+  },
+  "license": "MIT",
+  "author": "ljr-w <liujiarui0918@users.noreply.github.com>",
+  "type": "module",
+  "main": "src/index.mjs",
+  "exports": {
+    ".": "./src/index.mjs"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@mandate/adapters": "0.3.0-alpha.0",
+    "@mandate/packs-imperial-v1": "0.3.0-alpha.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
