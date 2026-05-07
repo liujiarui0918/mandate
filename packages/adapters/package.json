@@ -1,0 +1,44 @@
+{
+  "name": "@mandate/adapters",
+  "version": "0.3.0-alpha.0",
+  "description": "Multi-protocol skill adapters for Mandate — MCP, Claude Code skills, OpenClaw skills, raw CLI, and built-in. Each adapter exposes the {name, input_schema, output_schema, run(input)} contract.",
+  "keywords": [
+    "mandate",
+    "multi-agent",
+    "adapters",
+    "mcp",
+    "claude-code",
+    "openclaw",
+    "skill"
+  ],
+  "homepage": "https://github.com/liujiarui0918/mandate#readme",
+  "bugs": {
+    "url": "https://github.com/liujiarui0918/mandate/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liujiarui0918/mandate.git",
+    "directory": "packages/adapters"
+  },
+  "license": "MIT",
+  "author": "ljr-w <liujiarui0918@users.noreply.github.com>",
+  "type": "module",
+  "main": "src/index.mjs",
+  "exports": {
+    ".": "./src/index.mjs"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
