@@ -1,5 +1,5 @@
-// @mandate/adapters/mandate-builtin — adapter for skills that ship with
-// @mandate/runtime itself. Built-in skills are pure ESM functions registered
+// @mandateai/adapters/mandate-builtin — adapter for skills that ship with
+// @mandateai/runtime itself. Built-in skills are pure ESM functions registered
 // at runtime startup; this adapter is a thin lookup-and-invoke shim.
 
 import { assertSkillSpec, AdapterError, makeRunnable } from './base.mjs';

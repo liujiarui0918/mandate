@@ -1,4 +1,4 @@
-// @mandate/registry/cache — JSON cache for resolved skills.
+// @mandateai/registry/cache — JSON cache for resolved skills.
 //
 // Cache lives at .mandate/skills/.cache.json under the project root.
 // Schema: { version: 1, entries: { [skillName]: { ...hit, resolved_at } } }

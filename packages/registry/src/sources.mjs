@@ -1,4 +1,4 @@
-// @mandate/registry/sources — pluggable skill discovery sources.
+// @mandateai/registry/sources — pluggable skill discovery sources.
 //
 // Per SPEC §9.2, skill resolution walks a configurable source chain:
 //   discovery_order: [local, mandate-registry, npm, clawhub]
@@ -10,7 +10,7 @@
 import { existsSync, readdirSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { join, resolve as pathResolve } from 'node:path';
-import { claudeSkill, openclawSkill } from '@mandate/adapters';
+import { claudeSkill, openclawSkill } from '@mandateai/adapters';
 
 // ---- local: ~/.claude/skills, ~/.openclaw/skills, ./node_modules
 

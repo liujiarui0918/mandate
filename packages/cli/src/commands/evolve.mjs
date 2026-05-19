@@ -8,7 +8,7 @@ import {
   loadConstitution,
   saveConstitution,
   bumpConstitutionVersion,
-} from '@mandate/runtime';
+} from '@mandateai/runtime';
 
 const VALID_BUMPS = new Set(['major', 'minor', 'patch']);
 

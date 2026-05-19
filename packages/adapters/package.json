@@ -1,5 +1,5 @@
 {
-  "name": "@mandate/adapters",
+  "name": "@mandateai/adapters",
   "version": "0.3.0-alpha.0",
   "description": "Multi-protocol skill adapters for Mandate — MCP, Claude Code skills, OpenClaw skills, raw CLI, and built-in. Each adapter exposes the {name, input_schema, output_schema, run(input)} contract.",
   "keywords": [

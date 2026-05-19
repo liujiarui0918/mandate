@@ -13,7 +13,7 @@
 
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -33,6 +33,8 @@ const compiledCache = new Map();
 export function resolveSchemaRoot(schemaRoot) {
   if (schemaRoot) return resolve(schemaRoot);
   if (process.env.MANDATE_SCHEMA_ROOT) return resolve(process.env.MANDATE_SCHEMA_ROOT);
+  const packaged = resolve(__dirname, '../spec');
+  if (existsSync(packaged)) return packaged;
   return resolve(__dirname, '../../../spec');
 }
 

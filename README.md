@@ -127,11 +127,11 @@ You can implement Mandate today on top of LangGraph, Claude Code, Paperclip, or 
 ## Phase B — Reference Runtime (Coming Weeks 5-12)
 
 A TypeScript pnpm monorepo:
-- `@mandate/runtime` — runtime (hook scheduler, censor interceptor, file lock)
-- `@mandate/cli` — three hero commands + auxiliaries
-- `@mandate/adapters` — MCP / Claude Code / OpenClaw / CLI
-- `@mandate/packs-imperial-v1` — eight skill packs
-- `@mandate/registry` — local-first skill discovery
+- `@mandateai/runtime` — runtime (hook scheduler, censor interceptor, file lock)
+- `@mandateai/cli` — three hero commands + auxiliaries
+- `@mandateai/adapters` — MCP / Claude Code / OpenClaw / CLI
+- `@mandateai/packs-imperial-v1` — eight skill packs
+- `@mandateai/registry` — local-first skill discovery
 
 ## Phase C — Dashboard 紫禁城 (Weeks 13-20)
 

@@ -1,5 +1,5 @@
 /**
- * @mandate/runtime — chronicle (JSONL append log).
+ * @mandateai/runtime — chronicle (JSONL append log).
  *
  * Append-only event log per day:
  *   <courtDir>/.mandate/chronicle/YYYY-MM-DD.jsonl

@@ -1,4 +1,4 @@
-// @mandate/runtime — orchestrator + hook-scheduler + censor-interceptor tests.
+// @mandateai/runtime — orchestrator + hook-scheduler + censor-interceptor tests.
 
 import { test } from "node:test";
 import assert from "node:assert/strict";

@@ -12,7 +12,7 @@ import { join, resolve } from 'node:path';
 import {
   readChronicleRange,
   chronicleDate,
-} from '@mandate/runtime';
+} from '@mandateai/runtime';
 
 const RED_LINE_EVENT_TYPES = new Set([
   'red_line_tripped',

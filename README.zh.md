@@ -127,11 +127,11 @@ $ mandate court status       # 下次时间 + 上次结果
 ## Phase B——参考实现（第 5-12 周）
 
 TypeScript pnpm monorepo：
-- `@mandate/runtime` ——runtime（hook 调度器、锦衣卫拦截器、文件锁）
-- `@mandate/cli` ——三命令 + 辅助命令
-- `@mandate/adapters` ——MCP / Claude Code / OpenClaw / CLI
-- `@mandate/packs-imperial-v1` ——八个 skill pack
-- `@mandate/registry` ——本地优先的 skill 发现
+- `@mandateai/runtime` ——runtime（hook 调度器、锦衣卫拦截器、文件锁）
+- `@mandateai/cli` ——三命令 + 辅助命令
+- `@mandateai/adapters` ——MCP / Claude Code / OpenClaw / CLI
+- `@mandateai/packs-imperial-v1` ——八个 skill pack
+- `@mandateai/registry` ——本地优先的 skill 发现
 
 ## Phase C——紫禁城仪表盘（第 13-20 周）
 

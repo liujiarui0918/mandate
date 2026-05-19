@@ -1,6 +1,6 @@
-// @mandate/adapters — multi-protocol skill adapters for Mandate.
+// @mandateai/adapters — multi-protocol skill adapters for Mandate.
 //
-// Pack manifests (@mandate/packs-imperial-v1) declare skills like:
+// Pack manifests (@mandateai/packs-imperial-v1) declare skills like:
 //   { protocol: 'mcp', name: 'brave-search' }
 // The runtime uses this package to resolve those specs into runnable
 // handles regardless of which protocol they target.

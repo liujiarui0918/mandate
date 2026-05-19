@@ -1,4 +1,4 @@
-// @mandate/adapters/dispatcher — protocol-aware skill spec resolver.
+// @mandateai/adapters/dispatcher — protocol-aware skill spec resolver.
 //
 // Given a skill spec ({protocol, name, args?}) from a pack manifest,
 // route it to the matching adapter and return a runnable handle.

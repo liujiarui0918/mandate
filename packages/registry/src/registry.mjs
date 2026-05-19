@@ -1,8 +1,8 @@
-// @mandate/registry — skill discovery walker.
+// @mandateai/registry — skill discovery walker.
 //
 // Walks the configured source chain in order; first hit wins. Caches
 // resolved hits (excluding "not installed" stubs) so repeat lookups are
-// I/O-free. The registry is process-local; concurrent runs of @mandate/cli
+// I/O-free. The registry is process-local; concurrent runs of @mandateai/cli
 // share the on-disk cache via the .mandate/skills/.cache.json file.
 
 import { defaultSources } from './sources.mjs';

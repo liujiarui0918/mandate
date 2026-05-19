@@ -1,6 +1,6 @@
 {
-  "name": "@mandate/runtime",
-  "version": "0.3.0-alpha.0",
+  "name": "@mandateai/runtime",
+  "version": "0.3.0-alpha.1",
   "description": "Mandate runtime — constitution loader, terms resolver, chronicle (JSONL append), memory lifecycle, and model fallback resolver. The execution engine for self-governing multi-agent imperial courts.",
   "keywords": [
     "mandate",
@@ -44,7 +44,7 @@
     "test": "node --test tests/*.test.mjs"
   },
   "dependencies": {
-    "@mandate/validators": "0.3.0-alpha.0",
+    "@mandateai/validators": "0.3.0-alpha.1",
     "js-yaml": "^4.1.0"
   },
   "engines": {

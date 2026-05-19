@@ -1,4 +1,4 @@
-# @mandate/cli
+# @mandateai/cli
 
 CLI for [Mandate](https://github.com/liujiarui0918/mandate) — *one sentence → a working multi-agent court for any task*.
 

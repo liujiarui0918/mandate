@@ -1,4 +1,4 @@
-// @mandate/adapters — adapter tests.
+// @mandateai/adapters — adapter tests.
 //
 // Verifies the dispatcher routes by protocol, each adapter exposes the
 // {name, input_schema, output_schema, run} contract, and unwired adapters

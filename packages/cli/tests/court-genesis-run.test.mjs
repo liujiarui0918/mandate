@@ -1,4 +1,4 @@
-// @mandate/cli — tests for court / genesis / run shells.
+// @mandateai/cli — tests for court / genesis / run shells.
 //
 // Focuses on deterministic + LLM-stub paths. Real LLM execution is the
 // host wiring concern (see docs/specs B.M8 LLM wiring section).

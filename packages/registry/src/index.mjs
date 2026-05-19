@@ -1,4 +1,4 @@
-// @mandate/registry — skill discovery for Mandate.
+// @mandateai/registry — skill discovery for Mandate.
 //
 // Walks a configurable source chain (local / mandate-registry / npm /
 // clawhub) to locate a skill by name, then caches the result. Adapter

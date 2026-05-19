@@ -1,10 +1,10 @@
-// @mandate/adapters/base — adapter contract.
+// @mandateai/adapters/base — adapter contract.
 //
 // Per SPEC §9.1, every adapter exposes a uniform shape:
 //   { name, input_schema, output_schema, run(input) -> output }
 //
 // Adapters resolve a skill spec ({protocol, name, args?}) into a runnable
-// handle. They do not own the skill registry — that is @mandate/registry.
+// handle. They do not own the skill registry — that is @mandateai/registry.
 
 export class AdapterError extends Error {
   constructor(message, { protocol, skillName, cause } = {}) {

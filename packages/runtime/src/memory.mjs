@@ -1,5 +1,5 @@
 /**
- * @mandate/runtime — workspace lifecycle (memory).
+ * @mandateai/runtime — workspace lifecycle (memory).
  *
  * `<courtDir>/.mandate/workspace/` is the ephemeral scratchpad for the
  * current mandate run.

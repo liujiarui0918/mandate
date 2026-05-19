@@ -1,10 +1,10 @@
-// @mandate/adapters/claude-skill — adapter for Claude Code skills.
+// @mandateai/adapters/claude-skill — adapter for Claude Code skills.
 //
 // Claude Code skills live under ~/.claude/skills/<skill-name>/SKILL.md
 // and are surfaced through the host editor's Skill tool. In v0.3-alpha,
 // this adapter resolves and validates skill metadata; the actual
 // invocation is delegated to a host-provided invoker because skills
-// run in the Claude Code session, not in @mandate/runtime's process.
+// run in the Claude Code session, not in @mandateai/runtime's process.
 
 import { existsSync, readFileSync } from 'node:fs';
 import { homedir } from 'node:os';

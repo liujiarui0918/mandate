@@ -7,7 +7,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import yaml from 'js-yaml';
-import { loadConstitution, loadI18n } from '@mandate/runtime';
+import { loadConstitution, loadI18n } from '@mandateai/runtime';
 
 const KNOWN_ROLES = [
   'emperor', 'chancellor', 'cto', 'scout',
@@ -65,7 +65,7 @@ export async function runExplain(roleArg, targetDir = '.', { format = 'text' } =
 function packPath(role) {
   const candidates = [
     resolve('packages/packs-imperial-v1/packs', `${role}.pack.yaml`),
-    resolve('node_modules/@mandate/packs-imperial-v1/packs', `${role}.pack.yaml`),
+    resolve('node_modules/@mandateai/packs-imperial-v1/packs', `${role}.pack.yaml`),
   ];
   return candidates.find((p) => existsSync(p)) ?? candidates[0];
 }

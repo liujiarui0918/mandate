@@ -1,11 +1,11 @@
-// @mandate/adapters/mcp — adapter for Model Context Protocol skills.
+// @mandateai/adapters/mcp — adapter for Model Context Protocol skills.
 //
 // In v0.3-alpha this adapter is a SHIM: it tracks registered MCP server
 // configs and resolves a runnable handle, but the actual transport
 // (stdio / SSE / WebSocket) is delegated to a host-provided client. The
 // runtime main loop (B.M4) injects the real client; tests inject a mock.
 //
-// Why a shim? Bundling a full MCP client would lock @mandate/runtime to a
+// Why a shim? Bundling a full MCP client would lock @mandateai/runtime to a
 // single transport. The shim keeps the adapter-side contract testable
 // without taking a dependency on @modelcontextprotocol/sdk yet.
 

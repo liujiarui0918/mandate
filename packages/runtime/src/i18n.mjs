@@ -1,5 +1,5 @@
 /**
- * @mandate/runtime — terms.yaml resolver (i18n).
+ * @mandateai/runtime — terms.yaml resolver (i18n).
  *
  * Loads terms.yaml and provides:
  *   - canonicalize(input): map any surface form (zh/en/latin/alias) -> canonical role key

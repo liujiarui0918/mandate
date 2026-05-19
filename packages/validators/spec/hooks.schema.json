@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://mandate.dev/schemas/hooks.schema.json",
+  "title": "Mandate Role Hooks Definition",
+  "type": "object",
+  "required": ["role", "hooks"],
+  "properties": {
+    "role": { "type": "string", "minLength": 1 },
+    "zh": { "type": "string" },
+    "backing_cli": { "type": "string" },
+    "preferred_model": { "type": "string" },
+    "hooks": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["must"],
+          "properties": {
+            "must": { "type": "string", "minLength": 1 },
+            "schema": {},
+            "validator": { "type": "string" },
+            "timeout_seconds": { "type": "integer", "minimum": 1 },
+            "writes_to": { "type": "string" },
+            "retry_policy": { "enum": ["none", "once", "linear", "exponential"] }
+          }
+        }
+      }
+    }
+  }
+}

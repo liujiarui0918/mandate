@@ -1,4 +1,4 @@
-// @mandate/cli — tests for evolve / ratify / veto / status / explain / audit.
+// @mandateai/cli — tests for evolve / ratify / veto / status / explain / audit.
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
@@ -335,7 +335,7 @@ test("audit: returns empty when chronicle is empty", async () => {
 test("audit: surfaces red-line events from chronicle", async () => {
   const tmp = await bootstrapCourt();
   try {
-    const { appendEvent, chronicleDate } = await import("@mandate/runtime");
+    const { appendEvent, chronicleDate } = await import("@mandateai/runtime");
     await appendEvent(tmp, {
       type: "hook_failed",
       role: "scout",
@@ -359,7 +359,7 @@ test("audit: surfaces red-line events from chronicle", async () => {
 test("audit: writes audit reports when historianFn injected", async () => {
   const tmp = await bootstrapCourt();
   try {
-    const { appendEvent } = await import("@mandate/runtime");
+    const { appendEvent } = await import("@mandateai/runtime");
     await appendEvent(tmp, {
       type: "censor_rejected",
       role: "soldier",

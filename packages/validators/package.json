@@ -1,6 +1,6 @@
 {
-  "name": "@mandate/validators",
-  "version": "0.3.0-alpha.0",
+  "name": "@mandateai/validators",
+  "version": "0.3.0-alpha.1",
   "description": "Mandate validators — JSON Schema validation (constitution, hooks, decomposition, reform) + topology check (forbidden parent-child) for the Mandate multi-agent imperial court framework.",
   "keywords": [
     "mandate",
@@ -33,6 +33,7 @@
   },
   "files": [
     "src",
+    "spec",
     "README.md",
     "LICENSE"
   ],

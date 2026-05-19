@@ -1,5 +1,5 @@
 {
-  "name": "@mandate/packs-imperial-v1",
+  "name": "@mandateai/packs-imperial-v1",
   "version": "0.3.0-alpha.0",
   "description": "Imperial v1 skill packs for Mandate — eight role-default bundles (emperor, chancellor, cto, scout, soldier, secretary, censor, historian). Each pack declares the skills its role uses by default across MCP, Claude Code, OpenClaw, CLI, and built-in adapters.",
   "keywords": [

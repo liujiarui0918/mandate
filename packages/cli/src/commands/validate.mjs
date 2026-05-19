@@ -14,7 +14,7 @@ import {
   validateConstitution,
   validateDecomposition,
   checkTopology,
-} from '@mandate/validators';
+} from '@mandateai/validators';
 
 /**
  * @param {string} [targetDir]

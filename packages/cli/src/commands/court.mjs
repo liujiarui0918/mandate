@@ -18,7 +18,7 @@ import {
   readChronicle,
   readChronicleRange,
   chronicleDate,
-} from "@mandate/runtime";
+} from "@mandateai/runtime";
 
 const SUPPORTED_SESSIONS = new Set(["morning", "evening", "status", "history"]);
 

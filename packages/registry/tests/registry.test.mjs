@@ -1,4 +1,4 @@
-// @mandate/registry — discovery walker tests.
+// @mandateai/registry — discovery walker tests.
 //
 // Verifies source chain ordering, cache hit/miss behavior, atomic write
 // safety, and that not-installed stubs from npm/clawhub do not poison

@@ -1,4 +1,4 @@
-// @mandate/runtime/censor-interceptor — gate hook outputs through censor.
+// @mandateai/runtime/censor-interceptor — gate hook outputs through censor.
 //
 // Per SPEC §5.2 the censor runs in one of three strategies:
 //   full      — every hook output, sync

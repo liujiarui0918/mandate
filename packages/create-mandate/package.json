@@ -1,17 +1,17 @@
 {
-  "name": "@mandateai/cli",
+  "name": "create-mandate",
   "version": "0.3.0-alpha.1",
-  "description": "Mandate CLI — scaffold and operate self-governing multi-agent imperial courts. Provides create / validate (live) and genesis / evolve / run / court / audit / ratify / veto / status / explain (v0.4).",
+  "description": "Scaffolder for Mandate multi-agent imperial courts. Thin wrapper around @mandateai/cli's `create` subcommand — invoked via `npx create-mandate <project>`.",
   "keywords": [
     "mandate",
+    "mandateai",
     "multi-agent",
     "agents",
-    "cli",
     "scaffold",
+    "create",
     "imperial-court",
     "agent-orchestration",
-    "claude-code",
-    "openclaw"
+    "claude-code"
   ],
   "homepage": "https://github.com/liujiarui0918/mandate#readme",
   "bugs": {
@@ -20,33 +20,21 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/liujiarui0918/mandate.git",
-    "directory": "packages/cli"
+    "directory": "packages/create-mandate"
   },
   "license": "MIT",
   "author": "ljr-w <liujiarui0918@users.noreply.github.com>",
   "type": "module",
-  "main": "src/index.mjs",
   "bin": {
-    "mandate": "bin/mandate.mjs",
     "create-mandate": "bin/create-mandate.mjs"
   },
   "files": [
-    "src",
     "bin",
-    "templates",
     "README.md",
     "LICENSE"
   ],
-  "scripts": {
-    "test": "node --test tests/*.test.mjs"
-  },
   "dependencies": {
-    "@mandateai/runtime": "0.3.0-alpha.1",
-    "@mandateai/validators": "0.3.0-alpha.1",
-    "commander": "^12.1.0",
-    "prompts": "^2.4.2",
-    "js-yaml": "^4.1.0",
-    "gray-matter": "^4.0.3"
+    "@mandateai/cli": "0.3.0-alpha.1"
   },
   "engines": {
     "node": ">=20.0.0"

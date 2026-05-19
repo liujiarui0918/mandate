@@ -12,7 +12,7 @@
 import { resolve } from "node:path";
 import { existsSync } from "node:fs";
 import { runCreate } from "./create.mjs";
-import { appendEvent } from "@mandate/runtime";
+import { appendEvent } from "@mandateai/runtime";
 
 export async function runGenesis(prompt, targetDir, opts) {
   opts = opts || {};

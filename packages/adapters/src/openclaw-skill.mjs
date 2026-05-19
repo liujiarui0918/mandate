@@ -1,4 +1,4 @@
-// @mandate/adapters/openclaw-skill — adapter for OpenClaw skills.
+// @mandateai/adapters/openclaw-skill — adapter for OpenClaw skills.
 //
 // OpenClaw skills live under ~/.openclaw/skills/<skill-name>/ and are
 // distributed via ClawHub. Like claude-skill, in v0.3-alpha this adapter

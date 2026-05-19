@@ -1,4 +1,4 @@
-// @mandate/adapters/cli — adapter for raw CLI tools.
+// @mandateai/adapters/cli — adapter for raw CLI tools.
 //
 // Wraps a binary as a skill: stdin receives JSON input, stdout returns JSON
 // output. Used for skills like `gemini-search` (gemini CLI), `codex-batch`

@@ -1,11 +1,11 @@
-# @mandate/runtime
+# @mandateai/runtime
 
 Execution engine for [Mandate](https://github.com/liujiarui0918/mandate) — constitution loader, terms resolver, chronicle (JSONL append log), and helpers for self-governing multi-agent imperial courts.
 
 ## Install
 
 ```bash
-npm install @mandate/runtime
+npm install @mandateai/runtime
 ```
 
 ## Modules
@@ -15,7 +15,7 @@ npm install @mandate/runtime
 Load + validate `.mandate/constitution/constitution.yaml` against the JSON Schema:
 
 ```js
-import { loadConstitution, saveConstitution, bumpConstitutionVersion } from '@mandate/runtime';
+import { loadConstitution, saveConstitution, bumpConstitutionVersion } from '@mandateai/runtime';
 
 const r = loadConstitution('/path/to/my-empire');
 if (r.ok) {
@@ -33,7 +33,7 @@ saveConstitution('/path/to/my-empire', bumped);
 Bilingual first-class — every role has zh / en / latin / alias surface forms.
 
 ```js
-import { loadI18n } from '@mandate/runtime';
+import { loadI18n } from '@mandateai/runtime';
 
 const { canonicalize, display } = loadI18n();
 
@@ -51,7 +51,7 @@ display('chancellor', 'both'); // '宰相 (chancellor)'
 The historian's source of truth. One file per UTC day at `<courtDir>/.mandate/chronicle/YYYY-MM-DD.jsonl`.
 
 ```js
-import { appendEvent, readChronicle, readChronicleRange } from '@mandate/runtime';
+import { appendEvent, readChronicle, readChronicleRange } from '@mandateai/runtime';
 
 await appendEvent('/path/to/my-empire', {
   agent_id: 'chancellor',

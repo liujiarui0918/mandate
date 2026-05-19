@@ -12,7 +12,7 @@ import {
   loadModelHealth,
   readChronicle,
   chronicleDate,
-} from '@mandate/runtime';
+} from '@mandateai/runtime';
 
 export async function runStatus(targetDir = '.', { tail = 10 } = {}) {
   const root = resolve(targetDir);

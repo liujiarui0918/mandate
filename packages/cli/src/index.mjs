@@ -1,4 +1,4 @@
-// @mandate/cli — main entry.
+// @mandateai/cli — main entry.
 //
 // Routes top-level subcommands to their implementations.
 
@@ -15,7 +15,7 @@ import { runCourt, formatCourtReport } from "./commands/court.mjs";
 import { runGenesis } from "./commands/genesis.mjs";
 import { runMandate } from "./commands/run.mjs";
 
-const PKG_VERSION = "0.3.0-alpha.0";
+const PKG_VERSION = "0.3.0-alpha.1";
 
 export async function main(argv) {
   const program = new Command();

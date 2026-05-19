@@ -1,4 +1,4 @@
-// @mandate/packs-imperial-v1 — pack loader tests.
+// @mandateai/packs-imperial-v1 — pack loader tests.
 //
 // Verifies that all 8 imperial role packs parse correctly, validate
 // against the loader's schema, and round-trip through every public

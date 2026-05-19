@@ -12,7 +12,7 @@ import {
   loadConstitution,
   saveConstitution,
   bumpConstitutionVersion,
-} from '@mandate/runtime';
+} from '@mandateai/runtime';
 
 const RATIFIED_LEDGER = '_ratified.yaml';
 

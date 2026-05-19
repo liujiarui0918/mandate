@@ -1,4 +1,4 @@
-// @mandate/runtime/orchestrator — minimal hook-firing main loop.
+// @mandateai/runtime/orchestrator — minimal hook-firing main loop.
 //
 // Wires hook-scheduler + censor-interceptor + chronicle into a single
 // "fire one event for one role" call. Real LLM invocation is injected by
@@ -35,7 +35,7 @@ async function validateOutput(hook, output, validators) {
     return { ok: false, errors: result?.errors ?? ['validation failed'] };
   }
   // Schema validation is the caller's responsibility (ajv lives in
-  // @mandate/validators); orchestrator just yes-passes when only a schema
+  // @mandateai/validators); orchestrator just yes-passes when only a schema
   // is declared but no validator wired. The CLI plugs the real validator.
   return { ok: true };
 }

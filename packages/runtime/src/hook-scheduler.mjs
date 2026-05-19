@@ -1,4 +1,4 @@
-// @mandate/runtime/hook-scheduler — pick which hooks fire next.
+// @mandateai/runtime/hook-scheduler — pick which hooks fire next.
 //
 // Given a role's hook declarations (parsed from the role's hooks.yaml) and
 // the current lifecycle event, return an ordered list of hook descriptors

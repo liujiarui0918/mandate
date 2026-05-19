@@ -1,5 +1,5 @@
 /**
- * @mandate/runtime — model resolver.
+ * @mandateai/runtime — model resolver.
  *
  * Implements the three-tier default specified in SPEC §8:
  *   1. user override in mandate.config.yaml (handled upstream)

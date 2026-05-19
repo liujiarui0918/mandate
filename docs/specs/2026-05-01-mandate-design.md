@@ -526,7 +526,7 @@ Adapters all expose `{name, input_schema, output_schema, run(input) -> output}`:
 - `claude-skill` — Claude Code skills (`~/.claude/skills/`)
 - `openclaw-skill` — OpenClaw skills (`~/.openclaw/skills/`, ClawHub)
 - `cli` — raw CLI wrapper with stdin/stdout JSON contract
-- `mandate-builtin` — packaged with `@mandate/runtime`
+- `mandate-builtin` — packaged with `@mandateai/runtime`
 
 ### 9.2 Skill Discovery
 
@@ -755,7 +755,7 @@ Web dashboard for visualizing and operating a running court. Starts only after P
 - **Censor audit timeline** — red-line events, drift detections, hallucination flags filterable per role with drill-down to the offending hook output
 - **Per-mandate cost & token dashboard** — live spend, fallback chain decisions, model probe history
 
-**Tech stack (proposed):** Next.js 15 (App Router) + React 19 + Tailwind v4 + shadcn/ui + tRPC + Server-Sent Events for live chronicle stream + d3.js / React Flow for topology graph. Backend reuses `@mandate/runtime`'s runtime — dashboard is a thin presentation tier over the same files-as-source-of-truth.
+**Tech stack (proposed):** Next.js 15 (App Router) + React 19 + Tailwind v4 + shadcn/ui + tRPC + Server-Sent Events for live chronicle stream + d3.js / React Flow for topology graph. Backend reuses `@mandateai/runtime`'s runtime — dashboard is a thin presentation tier over the same files-as-source-of-truth.
 
 **Phase C exit criteria:**
 - Dashboard renders any `.mandate/` directory in real time

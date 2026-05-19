@@ -1,5 +1,5 @@
 /**
- * @mandate/runtime — cooperative file lock.
+ * @mandateai/runtime — cooperative file lock.
  *
  * Lockfile-based mutual exclusion for shared resource access (chronicle
  * appends, constitution writes, group artifact merges).

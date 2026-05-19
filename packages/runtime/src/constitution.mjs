@@ -1,8 +1,8 @@
 /**
- * @mandate/runtime — constitution loader.
+ * @mandateai/runtime — constitution loader.
  *
  * Loads `<courtDir>/.mandate/constitution/constitution.yaml`,
- * validates against the JSON Schema via @mandate/validators,
+ * validates against the JSON Schema via @mandateai/validators,
  * and returns a typed config object.
  *
  * Also supports semver-aware version bumps when reform PRs are ratified
@@ -12,7 +12,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import yaml from 'js-yaml';
-import { validateConstitution } from '@mandate/validators';
+import { validateConstitution } from '@mandateai/validators';
 
 /**
  * Resolve the .mandate/ directory inside a court dir.

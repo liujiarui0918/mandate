@@ -3,7 +3,7 @@
 // In v0.3-alpha this is a wired shell that validates the decree + spins up
 // a workspace + records the run in chronicle. Hook execution itself
 // requires a host-injected agentInvoker (the orchestrator from
-// @mandate/runtime is fully implemented; the CLI just composes it).
+// @mandateai/runtime is fully implemented; the CLI just composes it).
 
 import { resolve } from "node:path";
 import {
@@ -12,7 +12,7 @@ import {
   appendEvent,
   fireEvent,
   resolveCensorPolicy,
-} from "@mandate/runtime";
+} from "@mandateai/runtime";
 
 export async function runMandate(decree, targetDir, opts) {
   opts = opts || {};
@@ -42,7 +42,7 @@ export async function runMandate(decree, targetDir, opts) {
       message:
         "mandate received and workspace prepared. " +
         "Supply opts.agentInvoker (your LLM call) AND opts.censorFn (independent-model audit) to actually run hooks.",
-      next_action: "wire @mandate/runtime executeHook with your provider; see B.M4 orchestrator",
+      next_action: "wire @mandateai/runtime executeHook with your provider; see B.M4 orchestrator",
     };
   }
 

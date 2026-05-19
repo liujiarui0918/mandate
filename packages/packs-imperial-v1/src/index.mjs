@@ -1,4 +1,4 @@
-// @mandate/packs-imperial-v1 — Imperial v1 skill pack loader.
+// @mandateai/packs-imperial-v1 — Imperial v1 skill pack loader.
 //
 // Loads the eight role-default skill packs that ship with Mandate's
 // reference court topology. Each pack is a YAML manifest under packs/

@@ -1,11 +1,11 @@
-# @mandate/validators
+# @mandateai/validators
 
 JSON Schema validation + topology check for the [Mandate](https://github.com/liujiarui0918/mandate) multi-agent imperial court framework.
 
 ## Install
 
 ```bash
-npm install @mandate/validators
+npm install @mandateai/validators
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ npm install @mandate/validators
 ### Schema validation
 
 ```js
-import { validateConstitution, validateDecomposition, validateReform, validateHooks } from '@mandate/validators';
+import { validateConstitution, validateDecomposition, validateReform, validateHooks } from '@mandateai/validators';
 
 const result = validateConstitution(parsedYaml);
 if (!result.valid) {
@@ -26,7 +26,7 @@ if (!result.valid) {
 The killer feature: **forbidden parent-child detection**. Project groups in a Mandate court must be sibling-only — `decision_affecting` cross-group dependencies break Conway-clean parallelism.
 
 ```js
-import { checkTopology, proposeAutoMerges } from '@mandate/validators/topology';
+import { checkTopology, proposeAutoMerges } from '@mandateai/validators/topology';
 
 const decomposition = {
   mandate_id: 'm-001',
