@@ -1,11 +1,25 @@
 # Mandate · 天命
 
-> **One sentence → a working multi-agent court for any task.**
+> **Multi-agent frameworks copied the modern corporation. Mandate copies the Chinese imperial court — and adds two roles the corporate metaphor cannot express: an independent Censor on a separate model, and a Historian that drafts amendments to your system's own constitution.**
 >
-> *The Mandate of Heaven, in code.* Mandate turns any goal into a self-governing imperial court of agents — with daily morning and evening sessions. Bilingual first-class.
+> *The Mandate of Heaven, in code.* A 24-hour heartbeat (morning court / evening court). Bilingual first-class.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![npm](https://img.shields.io/npm/v/@mandateai/cli/alpha)](https://www.npmjs.com/package/@mandateai/cli)
+[![GitHub Stars](https://img.shields.io/github/stars/liujiarui0918/mandate?style=social)](https://github.com/liujiarui0918/mandate)
 [![Read in Chinese](https://img.shields.io/badge/lang-中文-red.svg)](README.zh.md)
+
+![Mandate demo](docs/assets/demo.gif)
+
+## Try it in 30 seconds
+
+```bash
+npx --yes create-mandate@alpha my-empire --template both
+cd my-empire
+npx --yes -p @mandateai/cli@alpha mandate validate .
+```
+
+That's a full imperial court — 8 roles, censor + historian, daily court cadence — scaffolded, validated, ready to evolve.
 
 ---
 

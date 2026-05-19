@@ -1,11 +1,25 @@
 # Mandate · 天命
 
-> **一句话 → 一座为你目标而生的自治朝廷。**
+> **multi-agent 框架都在抄西方公司层级。Mandate 抄的是中国朝廷 —— 多两个公司隐喻表达不了的角色:跑在不同模型上的锦衣卫(独立审查),以及替系统起草修宪 PR 的史官。**
 >
-> *奉天承运，朝廷自治。* Mandate 把任何目标变成一座自治的多 agent 朝廷——含每日早朝晚朝。双语一等公民。
+> *奉天承运,朝廷自治。* 含 24 小时心跳(早朝/晚朝)。双语一等公民。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![npm](https://img.shields.io/npm/v/@mandateai/cli/alpha)](https://www.npmjs.com/package/@mandateai/cli)
+[![GitHub Stars](https://img.shields.io/github/stars/liujiarui0918/mandate?style=social)](https://github.com/liujiarui0918/mandate)
 [![Read in English](https://img.shields.io/badge/lang-English-blue.svg)](README.md)
+
+![Mandate demo](docs/assets/demo.gif)
+
+## 30 秒试用
+
+```bash
+npx --yes create-mandate@alpha my-empire --template both
+cd my-empire
+npx --yes -p @mandateai/cli@alpha mandate validate .
+```
+
+一座完整的朝廷 —— 8 角色、锦衣卫 + 史官、早朝晚朝节律 —— 脚手架完成、校验通过、随时可演化。
 
 ---
 
