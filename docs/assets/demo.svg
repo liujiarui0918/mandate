@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 620" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e1e2e"/>
+      <stop offset="100%" stop-color="#181825"/>
+    </linearGradient>
+    <style>
+      .prompt { fill: #f38ba8; font-weight: bold; }
+      .cmd    { fill: #cdd6f4; }
+      .flag   { fill: #fab387; }
+      .url    { fill: #89b4fa; }
+      .ok     { fill: #a6e3a1; font-weight: bold; }
+      .info   { fill: #94e2d5; }
+      .dim    { fill: #6c7086; }
+      .key    { fill: #f9e2af; }
+      .title  { fill: #cba6f7; font-weight: bold; }
+      .cursor { fill: #cdd6f4; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="620" rx="12" fill="url(#bg)"/>
+
+  <!-- Title bar (mac-style traffic lights) -->
+  <g transform="translate(20,24)">
+    <circle cx="0" cy="0" r="7" fill="#f38ba8"/>
+    <circle cx="22" cy="0" r="7" fill="#f9e2af"/>
+    <circle cx="44" cy="0" r="7" fill="#a6e3a1"/>
+    <text x="540" y="6" class="dim" text-anchor="middle" font-size="14">~/playground — Mandate · 天命</text>
+  </g>
+
+  <!-- Terminal content -->
+  <g transform="translate(28,72)">
+    <!-- Header -->
+    <text x="0" y="0" class="title">📜 Mandate · 天命 — scaffold a Chinese imperial court for any task</text>
+
+    <!-- Scaffold -->
+    <text x="0" y="38" class="dim"># 1) scaffold</text>
+
+    <text x="0" y="64">
+      <tspan class="prompt">$ </tspan>
+      <tspan class="cmd">npx</tspan>
+      <tspan class="flag"> --yes</tspan>
+      <tspan class="cmd"> create-mandate</tspan>
+      <tspan class="url">@alpha</tspan>
+      <tspan class="cmd"> my-empire</tspan>
+      <tspan class="flag"> --template</tspan>
+      <tspan class="cmd"> both</tspan>
+    </text>
+
+    <text x="0" y="92">
+      <tspan class="ok">ok</tspan>
+      <tspan class="cmd"> Mandate court scaffolded at </tspan>
+      <tspan class="key">./my-empire/.mandate</tspan>
+      <tspan class="dim"> (template=both)</tspan>
+    </text>
+    <text x="0" y="114" class="dim">  Next: cd my-empire &amp;&amp; mandate run &lt;your first decree&gt;</text>
+
+    <!-- Inspect -->
+    <text x="0" y="152" class="dim"># 2) inspect the constitution</text>
+
+    <text x="0" y="178">
+      <tspan class="prompt">$ </tspan>
+      <tspan class="cmd">cd my-empire &amp;&amp; cat .mandate/constitution/constitution.yaml | head -12</tspan>
+    </text>
+
+    <text x="0" y="206"><tspan class="key">version</tspan>: <tspan class="info">1.0.0</tspan></text>
+    <text x="0" y="226"><tspan class="key">project</tspan>: my-empire</text>
+    <text x="0" y="246"><tspan class="key">language</tspan>: both</text>
+    <text x="0" y="266"><tspan class="key">topology</tspan>:</text>
+    <text x="0" y="286" class="cmd">  <tspan class="key">enforce_no_parent_child</tspan>: <tspan class="info">true</tspan></text>
+    <text x="0" y="306" class="cmd">  <tspan class="key">on_violation</tspan>: <tspan class="info">hard_block</tspan></text>
+    <text x="0" y="326" class="cmd"><tspan class="key">censor</tspan>:</text>
+    <text x="0" y="346" class="cmd">  <tspan class="key">default_tier</tspan>: <tspan class="info">balanced</tspan></text>
+    <text x="0" y="366" class="cmd">  <tspan class="key">overrides</tspan>:</text>
+    <text x="0" y="386" class="cmd">    <tspan class="key">chancellor</tspan>: { <tspan class="key">strategy</tspan>: <tspan class="info">full</tspan>, <tspan class="key">async</tspan>: <tspan class="info">false</tspan> }</text>
+
+    <!-- Validate -->
+    <text x="0" y="424" class="dim"># 3) validate</text>
+
+    <text x="0" y="450">
+      <tspan class="prompt">$ </tspan>
+      <tspan class="cmd">npx</tspan>
+      <tspan class="flag"> --yes -p</tspan>
+      <tspan class="cmd"> </tspan>
+      <tspan class="url">@mandateai/cli@alpha</tspan>
+      <tspan class="cmd"> mandate validate .</tspan>
+    </text>
+
+    <text x="0" y="478"><tspan class="title">📜 mandate validate</tspan><tspan class="dim"> — ./my-empire</tspan></text>
+    <text x="0" y="500" class="cmd">  <tspan class="ok">✓</tspan> constitution.yaml schema</text>
+    <text x="0" y="520" class="cmd">  <tspan class="ok">✓</tspan> decomposition.yaml (optional) (skipped)</text>
+    <text x="0" y="544" class="ok">✓ All checks passed.</text>
+
+    <text x="240" y="544" class="dim" font-size="14">zero LLM calls — full court ready in 5s</text>
+  </g>
+</svg>

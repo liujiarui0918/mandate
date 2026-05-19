@@ -9,7 +9,7 @@
 [![GitHub Stars](https://img.shields.io/github/stars/liujiarui0918/mandate?style=social)](https://github.com/liujiarui0918/mandate)
 [![Read in English](https://img.shields.io/badge/lang-English-blue.svg)](README.md)
 
-![Mandate demo](docs/assets/demo.gif)
+![Mandate demo](docs/assets/demo.svg)
 
 ## 30 秒试用
 
@@ -83,13 +83,11 @@ $ npx mandate genesis "<你的想法>"               # LLM 驱动的元朝廷设
 $ mandate evolve "<你想要的演化>"                # 自然语言修宪
 ```
 
-> **v0.3.1-alpha（2026 年 5 月）：** `create` 和 `validate` 已可用。npm 发布前先克隆仓库直接跑：
+> **v0.3.0-alpha.1(2026-05-19):** 已发布到 npm,`create` 和 `validate` 都已上线,一行直接用:
 >
 > ```bash
-> git clone https://github.com/liujiarui0918/mandate
-> cd mandate && npm install
-> node packages/cli/bin/mandate.mjs create my-empire --template both
-> node packages/cli/bin/mandate.mjs validate my-empire
+> npx --yes create-mandate@alpha my-empire --template both
+> npx --yes -p @mandateai/cli@alpha mandate validate my-empire
 > ```
 >
 > `genesis` / `evolve` / `run` / `court` / `audit` / `ratify` / `veto` 在 v0.4 上线。

@@ -9,7 +9,7 @@
 [![GitHub Stars](https://img.shields.io/github/stars/liujiarui0918/mandate?style=social)](https://github.com/liujiarui0918/mandate)
 [![Read in Chinese](https://img.shields.io/badge/lang-中文-red.svg)](README.zh.md)
 
-![Mandate demo](docs/assets/demo.gif)
+![Mandate demo](docs/assets/demo.svg)
 
 ## Try it in 30 seconds
 
@@ -83,16 +83,14 @@ $ npx mandate genesis "<your idea>"               # LLM-driven court designer
 $ mandate evolve "<your evolution>"               # natural-language amendment
 ```
 
-> **v0.3.1-alpha (May 2026):** `create` and `validate` are live. Until npm publish, run from this repo:
+> **v0.3.0-alpha.1 (2026-05-19):** Published to npm. `create` and `validate` are live. Just run:
 >
 > ```bash
-> git clone https://github.com/liujiarui0918/mandate
-> cd mandate && npm install
-> node packages/cli/bin/mandate.mjs create my-empire --template both
-> node packages/cli/bin/mandate.mjs validate my-empire
+> npx --yes create-mandate@alpha my-empire --template both
+> npx --yes -p @mandateai/cli@alpha mandate validate my-empire
 > ```
 >
-> `genesis`, `evolve`, `run`, `court`, `audit`, `ratify`, `veto` land in v0.4.
+> `genesis`, `evolve`, `run`, `court`, `audit`, `ratify`, `veto` ship in v0.4.
 
 ## Use Cases — Any Task Becomes a Court
 
